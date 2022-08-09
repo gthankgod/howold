@@ -1,10 +1,4 @@
-function responseHandler(
-  res,
-  data = null,
-  code,
-  status = "error",
-  message = "Invalid data"
-) {
+function responseHandler(res, data = null, code) {
   let responseCodes = {
     200: "OK",
     400: "Bad Request",
@@ -13,9 +7,7 @@ function responseHandler(
   };
 
   if (!responseCodes[code]) code = 400;
-  return res
-    .status(code)
-    .json(data);
+  return res.status(code).json(data);
 }
 
 module.exports = responseHandler;

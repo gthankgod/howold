@@ -14,25 +14,17 @@ let redis =
 
 function rateLimiter(remainingConnResetTime = 1, numberOfAllowedHits = 3) {
   return async function (req, res, next) {
-    let ttl;
     const ip = getIp(req);
     const numOfRequests = await redis.incr(ip);
 
     if (numOfRequests === 1) {
       await redis.expire(ip, remainingConnResetTime);
-      ttl = remainingConnResetTime;
     } else {
-      ttl = await redis.ttl(ip);
+      await redis.ttl(ip);
     }
 
     if (numOfRequests > numberOfAllowedHits) {
-      return responseHandler(
-        res,
-        null,
-        429,
-        "error",
-        `You've made too many request. ${ttl}ms remaining`
-      );
+      return responseHandler(res, null, 429);
     }
     next();
   };
