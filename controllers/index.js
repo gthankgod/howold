@@ -9,7 +9,7 @@ function calculateAge(req, res) {
     let result = service.calculateAge(reqData);
     return responseHandler(res, result, 200);
   } catch (error) {
-    return responseHandler(res, null, 400);
+    return responseHandler(res, error.message, 400);
   }
 }
 

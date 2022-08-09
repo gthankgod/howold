@@ -16,9 +16,7 @@ function startApp() {
   const PORT = process.env.PORT || "3000";
   app.set("port", PORT);
   app.use("/howold", routes);
-  app.use("/", (req, res) =>
-    responseHandler(res, null, 200, "success", "Welcome")
-  );
+  app.use("/", (req, res) => responseHandler(res, "Welcome", 200));
 
   const server = http.createServer(app);
 

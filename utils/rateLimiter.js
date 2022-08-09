@@ -24,7 +24,7 @@ function rateLimiter(remainingConnResetTime = 1, numberOfAllowedHits = 3) {
     }
 
     if (numOfRequests > numberOfAllowedHits) {
-      return responseHandler(res, null, 429);
+      return responseHandler(res, "Too many request...", 429);
     }
     next();
   };
