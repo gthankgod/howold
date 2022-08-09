@@ -1,10 +1,10 @@
-import { Router } from 'express';
+import { Router } from "express";
 const router = Router();
-import { calculateAge } from '../controllers/index.js';
-import rateLimiter from '../utils/rateLimiter.js';
+import calculateAge from "../controllers/index.js";
+import rateLimiter from "../utils/rateLimiter.js";
 
 router.use(rateLimiter());
 
-router.get('/', calculateAge);
+router.get("/", calculateAge);
 
 export default router;
