@@ -1,6 +1,6 @@
-import Redis from "ioredis";
-import getIp from "../utils/fetchIp.js";
-import responseHandler from "./responseHandler.js";
+const Redis = require("ioredis");
+const getIp = require("../utils/fetchIp");
+const responseHandler = require("./responseHandler");
 
 let redis =
   process.env.NODE_ENV === "production"
@@ -31,11 +31,11 @@ function rateLimiter(remainingConnResetTime = 1, numberOfAllowedHits = 3) {
         null,
         429,
         "error",
-        "You've made too many request."
+        `You've made too many request. ${ttl}ms remaining`
       );
     }
     next();
   };
 }
 
-export default rateLimiter;
+module.exports = rateLimiter;

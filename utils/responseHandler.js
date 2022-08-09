@@ -18,4 +18,4 @@ function responseHandler(
     .json({ status, data, message: `${responseCodes[code]}, ${message}.` });
 }
 
-export default responseHandler;
+module.exports = responseHandler;

@@ -14,4 +14,4 @@ function getIp(req) {
   return ip;
 }
 
-export default getIp;
+module.exports = getIp;

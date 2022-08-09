@@ -13,7 +13,7 @@
   "description": "Build and deploy a very simple API that does the following",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",

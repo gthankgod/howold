@@ -1,5 +1,5 @@
-import responseHandler from "../utils/responseHandler.js";
-import service from "../services/index.js";
+const responseHandler = require("../utils/responseHandler.js")
+const service = require('../services/index.js')
 
 function calculateAge(req, res) {
   try {
@@ -16,4 +16,4 @@ function calculateAge(req, res) {
   }
 }
 
-export default calculateAge;
+module.exports = calculateAge;

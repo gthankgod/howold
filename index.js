@@ -1,9 +1,9 @@
-import os from "node:os";
-import http from "node:http";
-import express from "express";
-import throng from "throng";
-import routes from "./routes/index.js";
-import responseHandler from "./utils/responseHandler.js";
+const os = require("node:os");
+const http = require("node:http");
+const express = require("express");
+const throng = require("throng");
+const routes = require("./routes/index.js");
+const responseHandler = require("./utils/responseHandler.js");
 
 const WORKERS = process.env.WEB_CONCURRENCY || os.cpus().length;
 process.env.ENABLE_CLUSTERS
@@ -20,7 +20,7 @@ function startApp() {
     responseHandler(res, null, 200, "success", "Welcome")
   );
 
-  var server = http.createServer(app);
+  const server = http.createServer(app);
 
   /**
    * Listen on provided port, on all network interfaces.

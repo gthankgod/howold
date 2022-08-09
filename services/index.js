@@ -17,6 +17,6 @@ function calculateAge({ dob }) {
   return ageDifference;
 }
 
-export default {
+module.exports = {
   calculateAge,
 };
