@@ -1,14 +1,10 @@
-const os = require("node:os");
 const http = require("node:http");
 const express = require("express");
 const throng = require("throng");
 const routes = require("./routes/index.js");
 const responseHandler = require("./utils/responseHandler.js");
 
-const WORKERS = process.env.WEB_CONCURRENCY || os.cpus().length;
-process.env.ENABLE_CLUSTERS
-  ? throng({ workers: WORKERS, lifetime: Infinity }, startApp)
-  : startApp();
+process.env.ENABLE_CLUSTERS ? throng(startApp) : startApp();
 
 function startApp() {
   const app = express();
