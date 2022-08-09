@@ -1,6 +1,4 @@
 function calculateAge({ dob }) {
-  if (!dob) throw new Error("No Date of birth Provided");
-
   const dateObj = new Date(dob);
   let dateIsValid = dateObj instanceof Date && !isNaN(dateObj);
   if (!dateIsValid) throw new Error("Please pass in a valid date");

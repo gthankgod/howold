@@ -3,7 +3,9 @@ const service = require("../services/index.js");
 
 function calculateAge(req, res) {
   try {
-    let result = service.calculateAge({ ...req.query });
+    if (req.query && !req.query.dob) throw new Error("No Date of birth Provided");
+    let reqData = { dob: req.query.dob };
+    let result = service.calculateAge(reqData);
     return responseHandler(
       res,
       result,

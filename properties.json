@@ -1,8 +1,8 @@
 {
-    "name": "",
-    "track": "backend",
-    "email": "",
-    "githubUsername": "",
-    "deployedAppURL": "",
-    "explainer": ""
+  "name": "ThankGod George",
+  "track": "backend",
+  "email": "gthankgod@gmail.com",
+  "githubUsername": "gthankgod",
+  "deployedAppURL": "https://backend-age-calculator.herokuapp.com",
+  "explainer": "ThankGod George"
 }
