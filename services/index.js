@@ -1,5 +1,9 @@
 function calculateAge({ dob }) {
-  const dateObj = new Date(dob);
+  let dateObj =
+    typeof Number(dob) === "number" && dob.length > 4
+      ? new Date(Number(dob))
+      : new Date(dob);
+
   let dateIsValid = dateObj instanceof Date && !isNaN(dateObj);
   if (!dateIsValid) throw new Error("Please pass in a valid date");
 
