@@ -1,5 +1,5 @@
-const responseHandler = require("../utils/responseHandler.js")
-const service = require('../services/index.js')
+const responseHandler = require("../utils/responseHandler.js");
+const service = require("../services/index.js");
 
 function calculateAge(req, res) {
   try {
