@@ -15,7 +15,7 @@ function responseHandler(
   if (!responseCodes[code]) code = 400;
   return res
     .status(code)
-    .json({ status, data, message: `${responseCodes[code]}, ${message}.` });
+    .json(data);
 }
 
 module.exports = responseHandler;
