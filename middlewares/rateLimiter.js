@@ -16,8 +16,8 @@ const rateLimiter = async (req, res, next) => {
   const numOfRequests = await redisClient.incr(ip);
 
   numOfRequests === 1
-    ? await redisClient.expire(ip, ConnectionResetTime)
-    : await redisClient.ttl(ip);
+    ? redisClient.expire(ip, ConnectionResetTime)
+    : redisClient.ttl(ip);
 
   return numOfRequests > numberOfAllowedHits
     ? responseHandler(res, "Too many request...", 429)
