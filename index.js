@@ -1,10 +1,10 @@
 const http = require("node:http");
 const express = require("express");
-const throng = require("throng");
+
 const routes = require("./routes/index.js");
 const responseHandler = require("./utils/responseHandler.js");
 
-process.env.ENABLE_CLUSTERS ? throng(startApp) : startApp();
+startApp();
 
 function startApp() {
   const app = express();
