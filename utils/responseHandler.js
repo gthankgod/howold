@@ -1,4 +1,4 @@
-function responseHandler(res, data = null, code = 400) {
+function responseHandler(res, data = null, code) {
   return res.status(code).json(data);
 }
 

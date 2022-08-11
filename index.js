@@ -1,5 +1,5 @@
+const http = require("node:http");
 const express = require("express");
-
 const routes = require("./routes/index.js");
 const responseHandler = require("./utils/responseHandler.js");
 
@@ -18,6 +18,7 @@ function startApp() {
         ? new Redis({
             host: process.env.REDIS_URL,
             port: process.env.REDIS_PORT,
+            username: process.env.REDIS_USERNAME,
             password: process.env.REDIS_PASSWORD,
           })
         : new Redis();
@@ -48,11 +49,13 @@ function startApp() {
   app.use("/howold", routes);
   app.use("/", (req, res) => responseHandler(res, "Welcome", 200));
 
+  const server = http.createServer(app);
+
   /**
    * Listen on provided port, on all network interfaces.
    */
 
-  app.listen(PORT, () =>
-    console.log("Express server listening on port " + PORT)
+  server.listen(PORT, "0.0.0.0", () =>
+    console.log("Express server listening on port " + server.address().port)
   );
 }
