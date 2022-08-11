@@ -1,4 +1,3 @@
-const http = require("node:http");
 const express = require("express");
 
 const routes = require("./routes/index.js");
@@ -50,13 +49,11 @@ function startApp() {
   app.use("/howold", routes);
   app.use("/", (req, res) => responseHandler(res, "Welcome", 200));
 
-  const server = http.createServer(app);
-
   /**
    * Listen on provided port, on all network interfaces.
    */
 
-  server.listen(PORT, "0.0.0.0", () =>
-    console.log("Express server listening on port " + server.address().port)
+  app.listen(PORT, "0.0.0.0", () =>
+    console.log("Express server listening on port " + PORT)
   );
 }
