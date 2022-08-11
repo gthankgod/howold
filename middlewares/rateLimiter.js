@@ -4,7 +4,7 @@ const responseHandler = require("../utils/responseHandler");
 let ConnectionResetTime = process.env.ConnectionResetTime || 1;
 let numberOfAllowedHits = process.env.numberOfAllowedHits || 3;
 
-const rateLimiter = async (req, res, next) => {
+const rateLimiter = (req, res, next) => {
   if (!req.$redisConnected) {
     console.log("NO REDIS CLIENT");
     next();
@@ -13,7 +13,7 @@ const rateLimiter = async (req, res, next) => {
 
   const redisClient = req.$redisClientProxy;
   const ip = getIp(req);
-  const numOfRequests = await redisClient.incr(ip);
+  const numOfRequests = redisClient.incr(ip);
 
   numOfRequests === 1
     ? redisClient.expire(ip, ConnectionResetTime)
