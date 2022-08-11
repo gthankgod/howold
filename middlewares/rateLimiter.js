@@ -4,7 +4,7 @@ const responseHandler = require("../utils/responseHandler");
 let ConnectionResetTime = process.env.ConnectionResetTime || 1;
 let numberOfAllowedHits = process.env.numberOfAllowedHits || 3;
 
-async function rateLimiter(req, res, next) {
+const rateLimiter = async (req, res, next) => {
   console.time("rate-limiter-time");
   if (!req.$redisConnected) {
     console.log("NO REDIS CLIENT");
@@ -19,10 +19,10 @@ async function rateLimiter(req, res, next) {
   numOfRequests === 1
     ? await redisClient.expire(ip, ConnectionResetTime)
     : await redisClient.ttl(ip);
-  console.timeLog("rate-limiter-time");
+  console.timeEnd("rate-limiter-time");
   return numOfRequests > numberOfAllowedHits
     ? responseHandler(res, "Too many request...", 429)
     : next();
-}
+};
 
 module.exports = rateLimiter;
