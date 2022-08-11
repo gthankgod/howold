@@ -1,5 +1,5 @@
 function responseHandler(res, data = null, code) {
-  return res.status(code).json({ age: data });
+  return res.status(code).json({ data });
 }
 
 module.exports = responseHandler;
