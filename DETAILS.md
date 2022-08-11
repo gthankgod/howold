@@ -6,19 +6,6 @@
 <details open="open">
 <summary>Table of Contents</summary>
 
-- [Smart Age Calculator](#smart-age-calculator)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Usage](#usage)
-      - [NodeJS](#nodejs)
-      - [Javascript](#javascript)
-      - [PHP](#php)
-      - [Java](#java)
-  - [Contributing](#contributing)
-  - [License](#license)
-
-</details>
-
 ## Getting Started
 
 ### Prerequisites
@@ -41,7 +28,7 @@ curl --location --request GET 'https://backend-age-calculator.herokuapp.com/howo
 var request = require("request");
 var options = {
   method: "GET",
-  url: "https://backend-age-calculator.herokuapp.com/howold?dob=1993-09-06",
+  url: "https://backend-age-calculator.herokuapp.com/howold?{dob}",
   headers: {},
 };
 request(options, function (error, response) {
@@ -60,7 +47,7 @@ function calculateAge(dob) {
   };
 
   fetch(
-    "https://philage-service.herokuapp.com/howold?dob={dob}",
+    "https://backend-age-calculator.herokuapp.com/howold?dob={dob}",
     requestOptions
   )
     .then((response) => response.text())
@@ -80,7 +67,7 @@ const age = calculateAge("436504400000"); // returns 38
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://backend-age-calculator.herokuapp.com/howold?dob=1993-09-06',
+  CURLOPT_URL => 'https://backend-age-calculator.herokuapp.com/howold?dob={dob}',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -106,7 +93,7 @@ echo $response;
 MediaType mediaType = MediaType.parse("text/plain");
 RequestBody body = RequestBody.create(mediaType, "");
 Request request = new Request.Builder()
-  .url("https://backend-age-calculator.herokuapp.com/howold?dob=1993-09-06")
+  .url("https://backend-age-calculator.herokuapp.com/howold?dob={dob}")
   .method("GET", body)
   .build();
 Response response = client.newCall(request).execute();
