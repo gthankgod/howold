@@ -1,4 +1,5 @@
 function getIp(req) {
+  console.time("getIp");
   let ip = null;
   if (req.headers["x-client-ip"]) {
     ip = req.headers["x-client-ip"];
@@ -11,6 +12,7 @@ function getIp(req) {
   } else {
     ip = req.ip;
   }
+  console.timeEnd("getIp");
   return ip;
 }
 

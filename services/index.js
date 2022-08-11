@@ -1,4 +1,5 @@
 function calculateAge({ dob }) {
+  console.time("calculateAge")
   let ageDifference;
   let dateObj = new Date(dob);
 
@@ -30,6 +31,7 @@ function calculateAge({ dob }) {
   ) {
     ageDifference = ageDifference - 1;
   }
+  console.timeEnd("calculateAge");
   return ageDifference;
 }
 

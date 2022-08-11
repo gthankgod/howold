@@ -53,7 +53,7 @@ function startApp() {
    * Listen on provided port, on all network interfaces.
    */
 
-  app.listen(PORT, "0.0.0.0", () =>
+  app.listen(PORT, () =>
     console.log("Express server listening on port " + PORT)
   );
 }
