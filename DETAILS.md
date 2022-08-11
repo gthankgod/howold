@@ -1,20 +1,10 @@
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/6e057888e4234d5fae98d01aeb23da08)](https://www.codacy.com/gh/gthankgod/howold/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gthankgod/howold&amp;utm_campaign=Badge_Grade)
-# Smart Age Calculator
-<div align="center">
-<br />
+# Smart Age Calculator [![Codacy Badge](https://app.codacy.com/project/badge/Grade/6e057888e4234d5fae98d01aeb23da08)](https://www.codacy.com/gh/gthankgod/howold/dashboard?utm_source=github.com&utm_medium=referral&utm_content=gthankgod/howold&utm_campaign=Badge_Grade) [![license](https://img.shields.io/github/license/dec0dOS/amazing-github-template.svg?style=flat-square)](LICENSE)
 
-[![license](https://img.shields.io/github/license/dec0dOS/amazing-github-template.svg?style=flat-square)](LICENSE)
-
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/dec0dOS/amazing-github-template/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
-[![made with hearth by dec0dOS](https://img.shields.io/badge/made%20with%20%E2%99%A5%20by-dec0dOS-ff1414.svg?style=flat-square)](https://github.com/dec0dOS)
-
-</div>
 <hr/>
-***
 <details open="open">
 <summary>Table of Contents</summary>
 
-- [Smart Age Calculator](#smart-age-calculator)
+- [Smart Age Calculator ![Codacy Badge](https://www.codacy.com/gh/gthankgod/howold/dashboard?utm_source=github.com&utm_medium=referral&utm_content=gthankgod/howold&utm_campaign=Badge_Grade) [![license](https://img.shields.io/github/license/dec0dOS/amazing-github-template.svg?style=flat-square)](LICENSE)](#smart-age-calculator--)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Usage](#usage)
@@ -22,11 +12,10 @@
       - [Javascript](#javascript)
       - [PHP](#php)
       - [Java](#java)
+  - [Contributing](#contributing)
   - [License](#license)
 
 </details>
-
-
 
 ## Getting Started
 
@@ -42,32 +31,48 @@ The easiest way to using the feature is by calling the API resource via the term
 curl --location --request GET 'https://backend-age-calculator.herokuapp.com/howold?dob=1993-09-06'
 ```
 
-### Usage 
+### Usage
+
 #### CURL
-```curl
-      curl --location --request GET 'https://backend-age-calculator.herokuapp.com/howold?dob=1993-09-06'
-```
-#### Javascript
+
 ```js
-  
-      function calculateAge(dob){
-        var requestOptions = {
-            method: 'GET',
-            redirect: 'follow'
-          };
+var request = require("request");
+var options = {
+  method: "GET",
+  url: "https://backend-age-calculator.herokuapp.com/howold?dob=1993-09-06",
+  headers: {},
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
 
-        fetch("https://philage-service.herokuapp.com/howold?dob={dob}", requestOptions)
-          .then(response => response.text())
-          .then(result => console.log(result))
-          .catch(error => console.log('error', error));
-      }
+#### Javascript
 
-      const age = calculateAge('436504400000'); // returns 38
+```js
+function calculateAge(dob) {
+  var requestOptions = {
+    method: "GET",
+    redirect: "follow",
+  };
+
+  fetch(
+    "https://philage-service.herokuapp.com/howold?dob={dob}",
+    requestOptions
+  )
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.log("error", error));
+}
+
+const age = calculateAge("436504400000"); // returns 38
 ```
 
 #### PHP
+
 ```php
-  
+
       <?php
 
 $curl = curl_init();
@@ -91,8 +96,9 @@ echo $response;
 ```
 
 #### Java
+
 ```java
-  
+
       OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
 MediaType mediaType = MediaType.parse("text/plain");
@@ -104,8 +110,13 @@ Request request = new Request.Builder()
 Response response = client.newCall(request).execute();
 ```
 
+## Contributing
+
+In lieu of a formal styleguide, take care to maintain the existing coding style.
+Add unit tests for any new or changed functionality. Lint and test your code
+using [grunt](http://gruntjs.com/).
+
 ## License
 
-This project is licensed under the **MIT license**. 
-
-See [LICENSE](LICENSE) for more information.
+Copyright (c) 2022 ThankGod George
+Licensed under the MIT license.
