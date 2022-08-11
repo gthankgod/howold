@@ -24,7 +24,7 @@ function startApp() {
         : new Redis();
 
     redisClient.on("connect", () => {
-      console.log("Redis connected");
+      // console.log("Redis connected");
     });
 
     redisClient.on("error", (error) => {
@@ -49,13 +49,14 @@ function startApp() {
   app.use("/howold", routes);
   app.use("/", (req, res) => responseHandler(res, "Welcome", 200));
 
+  // Handle uncaught global error
+  app.use((err, req, res, next) => responseHandler(res, err.message, 400));
+
   const server = http.createServer(app);
 
   /**
    * Listen on provided port, on all network interfaces.
    */
 
-  server.listen(PORT, "0.0.0.0", () =>
-    console.log("Express server listening on port " + server.address().port)
-  );
+  server.listen(PORT, "0.0.0.0");
 }
