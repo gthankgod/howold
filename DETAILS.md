@@ -1,14 +1,16 @@
-# Smart Age Calculator [![Codacy Badge](https://app.codacy.com/project/badge/Grade/6e057888e4234d5fae98d01aeb23da08)](https://www.codacy.com/gh/gthankgod/howold/dashboard?utm_source=github.com&utm_medium=referral&utm_content=gthankgod/howold&utm_campaign=Badge_Grade) [![license](https://img.shields.io/github/license/dec0dOS/amazing-github-template.svg?style=flat-square)](LICENSE)
+# Smart Age Calculator
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/6e057888e4234d5fae98d01aeb23da08)](https://www.codacy.com/gh/gthankgod/howold/dashboard?utm_source=github.com&utm_medium=referral&utm_content=gthankgod/howold&utm_campaign=Badge_Grade) [![license](https://img.shields.io/github/license/dec0dOS/amazing-github-template.svg?style=flat-square)](LICENSE)
 
 <hr/>
 <details open="open">
 <summary>Table of Contents</summary>
 
-- [Smart Age Calculator ![Codacy Badge](https://www.codacy.com/gh/gthankgod/howold/dashboard?utm_source=github.com&utm_medium=referral&utm_content=gthankgod/howold&utm_campaign=Badge_Grade) [![license](https://img.shields.io/github/license/dec0dOS/amazing-github-template.svg?style=flat-square)](LICENSE)](#smart-age-calculator--)
+- [Smart Age Calculator](#smart-age-calculator)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Usage](#usage)
-      - [CURL](#curl)
+      - [NodeJS](#nodejs)
       - [Javascript](#javascript)
       - [PHP](#php)
       - [Java](#java)
@@ -33,7 +35,7 @@ curl --location --request GET 'https://backend-age-calculator.herokuapp.com/howo
 
 ### Usage
 
-#### CURL
+#### NodeJS
 
 ```js
 var request = require("request");
