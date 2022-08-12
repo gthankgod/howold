@@ -1,5 +1,4 @@
 function responseHandler(res, data = null, code, options) {
-
   let SuccessResponse = () => res.status(200).json({ age: data });
 
   let RateLimitResponse = () => {
@@ -15,7 +14,6 @@ function responseHandler(res, data = null, code, options) {
 
   let ServerResponse = () =>
     res.status(500).json({ error: "Server Error. Please try again" });
-
 
   let validCodes = {
     200: SuccessResponse,

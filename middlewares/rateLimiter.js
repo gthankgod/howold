@@ -9,7 +9,6 @@ const rateLimiter = async (req, res, next) => {
   if (!req.$redisConnected) {
     throw new Error("Unable to connect to Redis, please try again");
   }
-
   const redisClient = req.$redisClientProxy;
   const ip = getIp(req);
   const numOfRequests = await redisClient.incr(ip);
