@@ -1,0 +1,37 @@
+{
+  "dependencies": {
+    "config": "^3.3.7",
+    "debug": "^4.3.4",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "ioredis": "^5.2.2",
+    "redis": "^4.2.0",
+    "throng": "^5.0.0",
+    "winston": "^3.8.1"
+  },
+  "name": "howold",
+  "description": "Build and deploy a very simple API that does the following",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index",
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gthankgod/howold.git"
+  },
+  "keywords": [
+    "age",
+    "date of birth",
+    "calculate"
+  ],
+  "author": "ThankGod George",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gthankgod/howold/issues"
+  },
+  "homepage": "https://github.com/gthankgod/howold#readme"
+}
