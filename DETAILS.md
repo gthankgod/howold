@@ -3,8 +3,6 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/6e057888e4234d5fae98d01aeb23da08)](https://www.codacy.com/gh/gthankgod/howold/dashboard?utm_source=github.com&utm_medium=referral&utm_content=gthankgod/howold&utm_campaign=Badge_Grade) [![license](https://img.shields.io/github/license/dec0dOS/amazing-github-template.svg?style=flat-square)](LICENSE)
 
 <hr/>
-<details open="open">
-<summary>Table of Contents</summary>
 
 ## Getting Started
 
