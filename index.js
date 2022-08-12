@@ -1,9 +1,10 @@
 const express = require("express");
+const throng = require("throng");
 const connectToRedis = require("./connectToRedis.js");
 const routes = require("./routes/index.js");
 const responseHandler = require("./utils/responseHandler.js");
 
-startApp();
+process.env.ENABLE_CLUSTERS ? throng(startApp) : startApp();
 
 function startApp() {
   const app = express();
@@ -21,5 +22,7 @@ function startApp() {
    * Listen on provided port, on all network interfaces.
    */
 
-  app.listen(PORT, "0.0.0.0");
+  app.listen(PORT, "0.0.0.0", () =>
+    console.log(`Server listening on PORT ${PORT}`)
+  );
 }
