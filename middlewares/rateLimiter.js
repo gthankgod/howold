@@ -20,9 +20,14 @@ const rateLimiter = async (req, res, next) => {
   } else {
     ttl = await redisClient.ttl(ip);
   }
+  let rateLimitRemaining = numberOfAllowedHits - numOfRequests;
 
   return numOfRequests > numberOfAllowedHits
-    ? responseHandler(res, "Too many request...", 429, { ip, ttl })
+    ? responseHandler(res, "Too many request...", 429, {
+        ip,
+        rtl: rateLimitRemaining,
+        ttl,
+      })
     : next();
 };
 
